@@ -38,9 +38,10 @@ st.markdown("""
         100% { background-position: 0% 50%; }
     }
 
-    /* Make Streamlit's default top-header transparent */
+    /* Make Streamlit's default top-header transparent AND click-through */
     [data-testid="stHeader"] {
         background-color: transparent !important;
+        pointer-events: none !important; /* Fix for unclickable header links! */
     }
     
     /* Push main content down so it isn't hidden by the fixed header */
@@ -191,7 +192,7 @@ st.markdown("""
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        z-index: 99999;
+        z-index: 999999 !important; /* Increased z-index */
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
@@ -217,6 +218,7 @@ st.markdown("""
         left: 50%;
         transform: translateX(-50%);
         z-index: 1;
+        pointer-events: auto; /* Ensure clicks register here */
     }
     
     .header-links a {
