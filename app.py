@@ -16,36 +16,28 @@ st.set_page_config(
 st.markdown("""
 <style>
     /* 1. Aurora Animated Background */
-   .stApp {
-    background:
-        radial-gradient(circle at 20% 20%, rgba(0,255,255,0.18), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(138,43,226,0.22), transparent 25%),
-        radial-gradient(circle at 40% 80%, rgba(0,191,255,0.18), transparent 25%),
-        linear-gradient(
-            -45deg,
-            #050816,
-            #0b1026,
-            #101935,
-            #050816
-        );
-
-    background-size: 300% 300%;
-    animation: aurora 20s ease infinite;
-}
-
-@keyframes aurora {
-    0% {
-        background-position: 0% 50%;
+    .stApp {
+        background:
+            radial-gradient(circle at 20% 20%, rgba(0,255,255,0.18), transparent 25%),
+            radial-gradient(circle at 80% 30%, rgba(138,43,226,0.22), transparent 25%),
+            radial-gradient(circle at 40% 80%, rgba(0,191,255,0.18), transparent 25%),
+            linear-gradient(
+                -45deg,
+                #050816,
+                #0b1026,
+                #101935,
+                #050816
+            ) !important;
+        background-size: 300% 300% !important;
+        animation: aurora 20s ease infinite !important;
+    }
+    
+    @keyframes aurora {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
     /* Make Streamlit's default top-header transparent */
     [data-testid="stHeader"] {
         background-color: transparent !important;
@@ -76,22 +68,20 @@ st.markdown("""
         border: 1px solid rgba(0, 255, 255, 0.3);
     }
 
-    /* 3. Sweeping Neon Title Animation */
+    /* 3. White Glowing Title Animation */
     .glow-title {
         font-size: 4.5em;
         font-weight: 900;
         text-align: center;
-        background: linear-gradient(90deg, #00ffff, #8a2be2, #00ffff);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 3s linear infinite;
+        color: #ffffff; /* White text */
+        animation: pulseGlow 4s ease-in-out infinite;
         margin-bottom: 0.1em;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     }
     
-    @keyframes shine {
-        to { background-position: 200% center; }
+    @keyframes pulseGlow {
+        0% { text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4); }
+        50% { text-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(138,43,226,0.8), 0 0 50px rgba(138,43,226,0.5); }
+        100% { text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.4); }
     }
 
     /* 4. Subheader Custom Styling */
@@ -212,17 +202,21 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 10px;
+        z-index: 2;
     }
     
     .header-title {
-        background: linear-gradient(90deg, #00ffff, #8a2be2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #ffffff;
+        text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 15px rgba(138, 43, 226, 0.4);
     }
 
     .header-links {
         display: flex;
         gap: 25px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
     }
     
     .header-links a {
@@ -248,17 +242,17 @@ st.markdown("""
 # -----------------------------------------------------------------------------
 # 2. PROFILE HEADER (STICKY)
 # -----------------------------------------------------------------------------
-# Replace the "#" and "mailto:..." with your actual links!
+# Profile header with custom links
 st.markdown("""
 <div class="custom-header">
     <div class="header-logo">
         🫀 <span class="header-title">Diagnostic Cardiology AI</span>
     </div>
     <div class="header-links">
-        <a href="#" target="_blank">🐙 GitHub</a>
-        <a href="#" target="_blank">💼 LinkedIn</a>
-        <a href="#" target="_blank">🌐 Portfolio</a>
-        <a href="mailto:your.email@example.com">📧 Contact</a>
+        <a href="https://github.com/Chandu-gummadavelly" target="_blank">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/chandu-gummadavelly-524830330" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/Chandu-gummadavelly" target="_blank">🌐 Portfolio</a>
+        <a href="mailto:chandugummadavelly@gmail.com">📧 Contact</a>
     </div>
 </div>
 """, unsafe_allow_html=True)
