@@ -1,115 +1,41 @@
-# 🫀 Diagnostic Cardiology AI
+# Heart Disease Predictor
 
-A sophisticated machine learning application that predicts the likelihood of heart disease based on clinical parameters. Built with a cost-complexity pruned Decision Tree algorithm and wrapped in an elegant, interactive Streamlit interface.
+A compact Streamlit app that predicts the likelihood of heart disease from clinical inputs using a pruned Decision Tree model.
 
----
+Live demo: https://heart-disease-predictor-bychandu.streamlit.app/
 
-## 📋 Table of Contents
+## Quick start
 
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Installation](#installation)
-- [Usage Guide](#usage-guide)
-- [How It Works](#how-it-works)
-- [Model Details](#model-details)
-- [Project Structure](#project-structure)
-- [Disclaimer](#disclaimer)
+Prerequisites:
+- Python 3.8+
+- pip
 
----
+Install dependencies:
 
-## 🎯 Overview
-
-**Diagnostic Cardiology AI** is an intelligent diagnostic tool designed to assist healthcare professionals and individuals in assessing cardiovascular health risk. By analyzing 13 clinical parameters—including vital signs, symptoms, and cardiac imaging results—the system leverages machine learning to estimate the probability of heart disease presence.
-
-This project demonstrates the practical intersection of data science and healthcare, showcasing how machine learning can be deployed as an accessible, user-friendly application for real-world scenarios.
-
----
-
-## ✨ Features
-
-### 🎨 **Beautiful Aurora-Inspired UI**
-- Animated gradient background with aurora effect
-- Glassmorphism design for input cards
-- Neon glowing title with smooth animations
-- Responsive layout optimized for all screen sizes
-- Interactive hover effects and smooth transitions
-
-### 🔍 **Comprehensive Clinical Input**
-Organized into three intuitive sections:
-
-1. **Vitals & Demographics**
-   - Age
-   - Sex (Male/Female)
-   - Resting Blood Pressure
-   - Serum Cholesterol
-   - Fasting Blood Sugar Status
-
-2. **Clinical Symptoms**
-   - Chest Pain Type (4 classifications)
-   - Exercise Induced Angina
-   - Maximum Heart Rate Achieved
-
-3. **ECG & Imaging**
-   - Resting ECG Results (3 classifications)
-   - ST Depression Induced by Exercise
-   - Slope of Peak Exercise ST Segment
-   - Number of Major Vessels Colored
-   - Thalassemia Status
-
-### 📊 **Instant Diagnostic Results**
-- Binary classification (High Risk / Low Risk)
-- Confidence Score (0-100%)
-- Visual progress indicator
-- Color-coded result cards (red for risk, green for safety)
-
-### 🚀 **Production-Ready Pipeline**
-- Automatic median imputation for missing values
-- One-hot encoding for categorical features
-- Serialized model pipeline for consistent predictions
-- Fast inference with caching
-
----
-
-## 🛠️ Technology Stack
-
-### **Backend & Core**
-- **Python 3.x** — Primary programming language
-- **scikit-learn** — Machine learning framework
-  - Decision Tree Classifier (cost-complexity pruned)
-  - Pipeline for preprocessing and prediction
-  - SimpleImputer for handling missing values
-  - OneHotEncoder for categorical features
-
-### **Frontend & UI**
-- **Streamlit** — Interactive web application framework
-  - Rapid deployment with minimal boilerplate
-  - Component-based layout system
-  - Real-time interactivity
-  - Custom CSS injection for advanced styling
-
-### **Data & Serialization**
-- **pandas** — Data manipulation and DataFrame handling
-- **joblib** — Model serialization and deserialization
-  - Efficient binary format for large models
-  - Preserves entire pipeline structure
-
-### **Styling & Animations**
-- **CSS3** — Advanced styling and animations
-  - Keyframe animations for aurora background
-  - Glassmorphism effects with backdrop-filter
-  - Smooth transitions and hover states
-  - Linear gradients and color blending
-
----
-
-## 📦 Installation
-
-### **Prerequisites**
-- Python 3.8 or higher
-- pip (Python package manager)
-
-### **Step 1: Clone the Repository**
 ```bash
-git clone https://github.com/Chandu-gummadavelly/Heart-disease-predictor.git
-cd Heart-disease-predictor
+pip install -r requirements.txt
+```
+
+Run locally:
+
+```bash
+streamlit run app.py
+# If your Streamlit script has a different name, replace `app.py` with that filename.
+```
+
+Or use the hosted app at the link above.
+
+## How to use
+
+1. Open the app (local or hosted).
+2. Enter patient data in the input sections (age, sex, chest pain type, resting blood pressure, serum cholesterol, fasting blood sugar, resting ECG, max heart rate, exercise-induced angina, ST depression, slope of ST segment, number of major vessels, thalassemia).
+3. Click the Predict button.
+4. The app returns a risk label (High Risk / Low Risk) and a confidence score (0–100%).
+
+## Notes
+
+- Model: Decision Tree classifier (cost-complexity pruned).
+- Preprocessing: median imputation for missing values and one-hot encoding for categorical features.
+- Model is serialized with joblib for consistent predictions.
+
+That's it — minimal, focused, and ready to use.
